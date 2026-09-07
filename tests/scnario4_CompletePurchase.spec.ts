@@ -11,6 +11,7 @@ test('SauceLab Login scenario', async ({ page, loginPage, homePage, cartPage, ch
     await loginPage.locators().textBox("Password").fill(password);
     await loginPage.clickOnLoginButton();
     await expect(homePage.locators().menu).toBeVisible();
+    await expect (page).toHaveScreenshot('home-page.png', { maxDiffPixels: 100 });
 
     //Step 2: Add any two product to the cart Bag pack and Bike Light
     console.info('--- STEP 2: ADD PRODUCTS TO CART ---');
@@ -99,6 +100,7 @@ test('SauceLab Login scenario', async ({ page, loginPage, homePage, cartPage, ch
     await expect(checkoutPage.locators().orderCompleteHeader).toHaveText('Thank you for your order!');
     await expect(checkoutPage.locators().orderCompleteText).toBeVisible();
     await expect(checkoutPage.locators().orderCompleteText).toContainText('Your order has been dispatched');
+    await expect(page).toHaveScreenshot('checkout-complete.png', { maxDiffPixels: 100 });
     console.info('Order confirmation message verified');
 
     //Logout from application
