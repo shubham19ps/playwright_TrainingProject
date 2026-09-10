@@ -33,7 +33,7 @@ export default defineConfig({
     video: 'on',
     screenshot: 'on',
     testIdAttribute: 'data-test',
-    headless: true,
+    headless: false,
   },
 
   /* Configure projects for major browsers */
